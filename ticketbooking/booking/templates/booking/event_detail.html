@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ event.name }}</h1>
+  <p>Date: {{ event.date }}</p>
+  <p>Location: {{ event.location }}</p>
+  <h2>Tickets</h2>
+  <ul>
+    {% for ticket in tickets %}
+      <li>
+        Price: ${{ ticket.price }}
+        <a href="{% url 'booking:book_ticket' ticket.id %}">Book</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

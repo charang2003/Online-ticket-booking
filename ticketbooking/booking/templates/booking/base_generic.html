@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Ticket Booking System</title>
+</head>
+<body>
+    <header>
+        <h1>Online Ticket Booking System</h1>
+        <nav>
+            <a href="{% url 'booking:event_list' %}">Events</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'booking:booking_list' %}">My Bookings</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

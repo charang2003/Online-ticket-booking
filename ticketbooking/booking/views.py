@@ -27,6 +27,9 @@ def book_ticket(request, ticket_id):
         form = BookingForm()
     return render(request, 'booking/book_ticket.html', {'form': form, 'ticket': ticket})
 
+def home(request):
+    return render(request, 'booking/home.html')
+
 @login_required
 def booking_list(request):
     bookings = Booking.objects.filter(user=request.user)

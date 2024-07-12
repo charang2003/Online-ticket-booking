@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Your Bookings</h1>
+  <ul>
+    {% for booking in bookings %}
+      <li>
+        Event: {{ booking.ticket.event.name }} - Quantity: {{ booking.quantity }} - Date: {{ booking.booking_date }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
